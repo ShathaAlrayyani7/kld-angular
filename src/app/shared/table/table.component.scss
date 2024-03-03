@@ -1,0 +1,64 @@
+$textColor: rgb(157 155 155);
+$primaryBgColor: rgb(236, 243, 241);
+$primaryColor: rgb(44, 110, 89);
+
+.customTable {
+  width: 100%;
+
+  .mat-mdc-header-cell {
+    color: $primaryColor;
+    background-color: $primaryBgColor;
+  }
+
+  .tableHeaderCell {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+  }
+
+  .dateCellWrapper,
+  .orderTypeCellWrapper,
+  .orderNumCellWrapper,
+  .statusCellWrapper {
+    align-items: center;
+    color: $textColor;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    height: 66px;
+    justify-content: end;
+    width: 100%;
+  }
+
+  .blue,
+  .green,
+  .gray,
+  .red {
+    padding: 4px 10px;
+    width: fit-content;
+    display: flex;
+    font-weight: 500;
+    font-size: 14px;
+    height: fit-content;
+  }
+
+  .blue {
+    background-color: rgb(224 234 255);
+    color: rgb(36 96 217);
+  }
+
+  .green {
+    color: $primaryColor;
+    background-color: $primaryBgColor;
+  }
+
+  .gray {
+    background-color: rgb(224 225 227);
+    color: rgb(89 90 92);
+  }
+
+  .red {
+    background-color: rgb(255 228 228);
+    color: rgb(228 72 72);
+  }
+}

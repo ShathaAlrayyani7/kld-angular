@@ -1,0 +1,76 @@
+<div>
+  <form [formGroup]="signUpForm" class="signUpForm">
+    <h1>إنشاء حساب جديد</h1>
+    <p>سجِّل الآن وانطلق في رحلة نحو الاحتراف في مجال كفاءة الطاقة.</p>
+    <div *ngFor="let label of signUpFormLabels" class="textFieldWrapper">
+      <label for="{{ label.name }}">{{ label.label }}</label>
+      <input
+        class="textField"
+        name="{{ label.name }}"
+        type="text"
+        formControlName="{{ label.name }}"
+      />
+      <span
+        *ngIf="
+          !signUpForm.get(label.name)?.valid &&
+          signUpForm.get(label.name)?.touched
+        "
+        class="errorMsg"
+        >This Field is Required
+      </span>
+    </div>
+    <div *ngFor="let field of signUpPswFields" class="textFieldWrapper">
+      <label for="{{ field.name }}">{{ field.label }}</label>
+      <div
+        class="inputWithIconWrapper"
+        [ngClass]="{
+          'ng-touched': signUpForm.get(field.name)?.touched,
+          'ng-invalid': !signUpForm.get(field.name)?.valid
+        }"
+      >
+        <img
+          class="seePassword"
+          (click)="
+            field.name === 'password'
+              ? handleOnSeePassword()
+              : handleOnSeePsw2()
+          "
+          *ngIf="field.isPassword | async"
+          src="./assets/icons/eye.svg"
+          alt="see password"
+        />
+        <img
+          class="hidePassword"
+          (click)="
+            field.name === 'password'
+              ? handleOnSeePassword()
+              : handleOnSeePsw2()
+          "
+          *ngIf="!(field.isPassword | async)"
+          src="./assets/icons/hide.svg"
+          alt="see password"
+        />
+        <input
+          formControlName="{{ field.name }}"
+          type="{{ (field.isPassword | async) ? 'password' : 'text' }}"
+          name="{{ field.name }}"
+        />
+      </div>
+      <span
+        *ngIf="
+          !signUpForm.get(field.name)?.valid &&
+          signUpForm.get(field.name)?.touched
+        "
+        class="errorMsg"
+        >This Field is Required
+      </span>
+    </div>
+    <button class="signUpBtn" type="submit" [disabled]="!signUpForm.valid">
+      إنشاء حساب جديد
+    </button>
+    <p>
+      يوجد لديك حساب بالفعل؟
+      <a (click)="handleLoginClick()"> تسجيل الدخول </a>
+    </p>
+  </form>
+</div>

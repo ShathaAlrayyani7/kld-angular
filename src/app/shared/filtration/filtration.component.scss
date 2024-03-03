@@ -1,0 +1,48 @@
+$primaryColor: rgb(44 110 89);
+
+.filtrationWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+
+//   .mdc-text-field--outlined {
+//     box-shadow: rgb(99 99 99 /20%) 0px 2px 8px 0px;
+//     background-color: white;
+//     height: 40px;
+//     border: none;
+//   }
+
+//   .customField {
+//     box-shadow: rgb(99 99 99 /20%) 0px 2px 8px 0px;
+//     background-color: white;
+//     height: 40px;
+//     border: none;
+
+//     .customSelect {
+//         height: 20px;
+//         border: none;
+//     }
+//   }
+
+  .inputWithIconFilter {
+    height: 40px;
+    border-radius: 0px, 4px, 4px, 0px;
+    display: flex;
+    box-shadow: rgb(99 99 99 /20%) 0px 2px 8px 0px;
+
+    input {
+      border: 0;
+      text-align: right;
+      padding: 2px 8px;
+    }
+
+    .imgContainer {
+      width: 60px;
+      background-color: $primaryColor;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

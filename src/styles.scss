@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("./app/auth/auth.component.scss") html;
+
+@font-face {
+  font-family: "URW DIN Arabic";
+  src: url("./assets/font/URWDINArabic-Demi.woff2") format("woff2"),
+    url("./assets/font/URWDINArabic-Black.woff") format("woff");
+  /* Add additional font formats here if necessary */
+}
+
+* {
+  font-family: "URW DIN Arabic", sans-serif !important;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "URW DIN Arabic", sans-serif;
+}

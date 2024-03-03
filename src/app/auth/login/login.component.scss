@@ -1,0 +1,117 @@
+$primary-color: rgb(44 110 89);
+$primary-color-hover: rgba(26 66 53);
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 469px;
+  text-align: end;
+  margin-right: 32px;
+  margin-top: 32px;
+
+  h1 {
+    color: rgb(44 110 89);
+  }
+
+  .textFieldWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: space-between;
+    width: 100%;
+
+    label {
+      color: rgba(89 90 92);
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .textField {
+      border-radius: 100px;
+      border: 1px solid rgb(217 217 217);
+      font-size: 16px;
+      height: 50px;
+      padding: 0 12px;
+      text-align: right;
+    }
+
+    .textField.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+
+    .errorMsg {
+      color: red;
+    }
+
+    .inputWithIconWrapper {
+      height: 50px;
+      padding: 0 12px;
+      border-radius: 100px;
+      border: 1px solid rgb(217 217 217);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+
+      input {
+        border: none;
+        height: 100%;
+        width: 100%;
+        text-align: right;
+        font-size: 16px;
+
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+
+      .seePassword,
+      .hidePassword {
+        cursor: pointer;
+        width: 22px;
+      }
+
+      .seePassword {
+        height: 16px;
+      }
+
+      .hidePassword {
+        height: 22px;
+      }
+    }
+
+    .inputWithIconWrapper.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+  }
+
+  a {
+    color: rgb(44 110 89);
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .submitBtn {
+    background-color: rgb(44 110 89);
+    border: none;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    height: 48px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid $primary-color;
+
+    &:hover {
+      background-color: $primary-color-hover;
+    }
+
+    &:disabled {
+      background-color: white;
+      color: gray;
+      cursor: not-allowed;
+      // border: none;
+    }
+  }
+}

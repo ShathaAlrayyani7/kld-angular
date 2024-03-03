@@ -1,0 +1,55 @@
+<div class="tableWithPagination">
+  <table mat-table [dataSource]="dataSource" class="customTable">
+    <!-- Position Column -->
+    <ng-container
+      *ngFor="
+        let column of tableColData | paginate: { itemsPerPage: 10, currentPage: currentPage }
+      "
+      matColumnDef="{{ column.colName }}"
+    >
+      <th mat-header-cell *matHeaderCellDef>
+        <div class="tableHeaderCell">
+          {{ column.label }}
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="viewCellWrapper" *ngIf="column.colName === 'view'">
+          <img src="../../../assets/icons/eye.svg" alt="view icon" />
+        </div>
+        <div class="statusCellWrapper" *ngIf="column.colName === 'status'">
+          <div
+            [ngClass]="{
+          blue: element[column.colName] === 'طلب جديد',
+          green: element[column.colName] === 'تمت الموافقة من أمين اللجنة',
+          gray: element[column.colName] === 'في انتظار تصويت اللجنة',
+          red: element[column.colName] === 'طلب تعديل من أمين اللجنة',
+        }"
+          >
+            {{ element[column.colName] }}
+          </div>
+        </div>
+        <div class="dateCellWrapper" *ngIf="column.colName === 'date'">
+          {{ element[column.colName] | date : "dd/MM/yyyy" }}
+        </div>
+        <div
+          class="orderTypeCellWrapper"
+          *ngIf="column.colName === 'orderType'"
+        >
+          {{ element[column.colName] }}
+        </div>
+        <div class="orderNumCellWrapper" *ngIf="column.colName === 'orderNum'">
+          #{{ element[column.colName] }}
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns">
+      <td>hello</td>
+    </tr>
+  </table>
+  <pagination-controls
+    (pageChange)="pageChanged($event)"
+    class="my-pagination"
+  ></pagination-controls>
+</div>

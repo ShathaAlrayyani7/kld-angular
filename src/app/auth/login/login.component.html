@@ -1,0 +1,68 @@
+<div>
+  <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="handleLogin()">
+    <h1>تسجيل الدخول</h1>
+    <div *ngFor="let label of loginFormLabels" class="textFieldWrapper">
+      <label for="{{ label.name }}">{{ label.label }}</label>
+      <input
+        formControlName="{{ label.name }}"
+        class="textField"
+        name="{{ label.name }}"
+        type="text"
+      />
+      <span
+        *ngIf="
+          !loginForm.get(label.name)?.valid &&
+          loginForm.get(label.name)?.touched
+        "
+        class="errorMsg"
+        >This Field is Required
+      </span>
+    </div>
+    <div class="textFieldWrapper">
+      <label for="password">كلمة المرور</label>
+      <div
+        class="inputWithIconWrapper"
+        [ngClass]="{
+          'ng-touched': loginForm.get('password')?.touched,
+          'ng-invalid': !loginForm.get('password')?.valid
+        }"
+      >
+        <img
+          class="seePassword"
+          (click)="handleOnSeePassword()"
+          *ngIf="isPassword | async"
+          src="./assets/icons/eye.svg"
+          alt="see password"
+        />
+        <img
+          class="hidePassword"
+          (click)="handleOnSeePassword()"
+          *ngIf="!(isPassword | async)"
+          src="./assets/icons/hide.svg"
+          alt="see password"
+        />
+        <input
+          formControlName="password"
+          type="{{ (isPassword | async) ? 'password' : 'text' }}"
+          name="password"
+        />
+      </div>
+      <span
+        *ngIf="
+          !loginForm.get('password')?.valid &&
+          loginForm.get('password')?.touched
+        "
+        class="errorMsg"
+        >This Field is Required
+      </span>
+    </div>
+    <button class="submitBtn" type="submit" [disabled]="!loginForm.valid">
+      تسجيل الدخول
+    </button>
+    <p>هل نسيت كلمة المرور؟</p>
+    <p>
+      لا تمتلك حساب؟
+      <a (click)="handleSignUpClick()">إنشاء حساب جديد</a>
+    </p>
+  </form>
+</div>

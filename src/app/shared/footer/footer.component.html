@@ -1,0 +1,30 @@
+<div class="footer">
+  <div class="mainFooter">
+    <div class="item">
+      <h3>منصات التواصل الاجتماعي</h3>
+      <div class="imgWrapper">
+        <img src="./assets/icons/linkedin.svg" alt="linkedIn" />
+        <img src="./assets/icons/youtube.svg" alt="youtube" />
+        <img src="./assets/icons/twitter.svg" alt="twitter" />
+      </div>
+    </div>
+    <div class="right">
+      <div *ngFor="let item of items" class="item">
+        <h3>{{ item.title }}</h3>
+        <div class="list">
+          <p *ngFor="let text of item.list">
+            {{ text }}
+            <span class="sign"><</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contactUs">
+    <div class="textWrapper">
+      <p>سياسة الاستخدام</p>
+      <p>سياسة الخصوصية</p>
+    </div>
+    <p>جميع الحقوق محفوظة للمركز السعودي لكفاءة الطاقة © 2023</p>
+  </div>
+</div>

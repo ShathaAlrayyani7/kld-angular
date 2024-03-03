@@ -1,0 +1,16 @@
+<div class="filtrationWrapper">
+  <mat-form-field *ngFor="let filter of searchList" appearance="outline" class="customField">
+    <mat-label>{{ filter.placeholder }}</mat-label>
+    <mat-select [formControl]="filter.value" multiple class="customSelect">
+      @for (item of filter.options; track item) {
+      <mat-option [value]="item">{{ item }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <div class="inputWithIconFilter">
+    <input type="text" placeholder="البحث" />
+    <div class="imgContainer">
+      <img src="./assets/icons/search.svg" alt="search icon" />
+    </div>
+  </div>
+</div>

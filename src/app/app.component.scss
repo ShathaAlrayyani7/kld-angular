@@ -1,0 +1,19 @@
+.app {
+  height: 100vh;
+  width: 100%;
+
+  .appContent {
+    margin-top: 77px;
+  }
+
+  .mainWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main {
+      margin-right: 296px;
+      height: 100%;
+    }
+  }
+}

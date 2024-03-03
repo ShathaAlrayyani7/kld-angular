@@ -1,0 +1,60 @@
+$primary-color: rgb(44 110 89);
+$text-color: rgb(89 90 92);
+
+.myOrdersPageWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .pageTitle {
+    background-color: $primary-color;
+    display: flex;
+    height: 132px;
+
+    img {
+      width: 70%;
+    }
+
+    .textWrapper {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      width: 25%;
+      align-items: end;
+      text-wrap: nowrap;
+      overflow: visible;
+      justify-content: center;
+      padding: 0 24px;
+
+      p {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+  }
+
+  .myOrders {
+    align-items: end;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 24px;
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: $text-color;
+    }
+
+    .tableWrapper {
+      width: 100%;
+      height: 400px;
+      overflow: auto;
+    }
+  }
+}

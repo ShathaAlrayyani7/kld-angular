@@ -1,0 +1,14 @@
+<div class="sidebarWrapper">
+  <img src="./assets/imges/logo.png" alt="Logo img" />
+  <div class="navGroup">
+    <button
+      *ngFor="let navItem of navLinks"
+      (click)="onNavigate(navItem.path)"
+      routerLink="{{navItem.path}}"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+    >
+      {{ navItem.label }}
+    </button>
+  </div>
+</div>

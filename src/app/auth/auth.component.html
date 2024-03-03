@@ -1,0 +1,7 @@
+<div class="authPageWrapper">
+  <img src="./assets/imges/authImg.png" alt="background img" />
+  <div class="formWrapper">
+    <app-login *ngIf="isLogin | async" />
+    <app-sign-up *ngIf="!(isLogin | async)" />
+  </div>
+</div>

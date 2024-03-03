@@ -1,0 +1,14 @@
+@import url("./login/login.component.scss");
+@import url("./sign-up/sign-up.component.scss");
+
+.authPageWrapper {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+
+  .formWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
