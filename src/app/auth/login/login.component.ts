@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     },
   ];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router:Router) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({

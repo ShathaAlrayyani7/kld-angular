@@ -10,11 +10,17 @@ export const authGuard: CanActivateFn = (route) => {
     '🚀 ~ authService.isLoggedIn:',
     authService.isLoggedIn.getValue()
   );
-  if (authService.isLoggedIn.getValue() && !authService.isLogin.getValue()) {
+  if (authService.isLoggedIn.getValue()) {
     console.log('🚀 ~ route:', route.url[0].path);
     // nav.navigate([route.url[0].path]);
     return true;
   } else {
+    console.log(
+      '🚀 ~ authService.isLoggedIn:',
+      authService.isLoggedIn.getValue()
+    );
+    console.log('you are not allowed');
+    nav.navigate(['auth'])
     return false;
   }
 };

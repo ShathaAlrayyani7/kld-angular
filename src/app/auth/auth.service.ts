@@ -18,25 +18,23 @@ export class AuthService{
   handleFormSwitchToLogin() {
     this.isLoggedIn.next(false);
     this.isLogin.next(true);
-    console.log('isLoggedIn', this.isLoggedIn.value);
-    this.router.navigate([''])
+    this.router.navigate(['auth'])
   }
 
   handleFormSwitchToSighUp() {
     this.isLoggedIn.next(false);
     this.isLogin.next(false);
-    console.log('isLogin', this.isLogin.value);
-    this.router.navigate([''])
+    this.router.navigate(['auth'])
   }
 
   onSignIn() {
     this.isLoggedIn.next(true);
-    console.log('you are logged in');
+    this.router.navigate(['home'])
   }
 
   onSignOut() {
     this.isLoggedIn.next(false);
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['auth'])
   }
 
   onSignUp() {

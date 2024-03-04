@@ -12,7 +12,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 export class SideBarComponent implements OnInit {
   navLinks = [
     {
-      path:'',
+      path:'home',
       label: 'الرئيسية',
       src:'',
     },
