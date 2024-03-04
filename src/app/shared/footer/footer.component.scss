@@ -1,21 +1,21 @@
 $footerBg: rgb(236 243 241);
 $primary-color: rgb(44 110 89);
 $text-color: rgb(89 90 92);
-$green-text:rgb(128 182 65);
-
-
+$green-text: rgb(128 182 65);
 
 .footer {
+  align-items: end;
   background-color: $footerBg;
-  max-height: 373px;
-  padding:32px 32px 0 32px;
-  position: sticky;
-  z-index: 15;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  align-items: end;
-  font-family: "URW DIN Arabic", sans-serif;
+  max-height: 373px;
+  padding: 32px 32px 0 64px;
+  position: fixed;
+  right: 0;
+  width: 96%;
+  z-index: 15;
 
   .mainFooter {
     display: flex;
@@ -76,7 +76,7 @@ $green-text:rgb(128 182 65);
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 16px 0 0 0 ;
+    padding: 16px 0 0 0;
     color: $text-color;
 
     .textWrapper {

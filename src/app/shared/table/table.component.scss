@@ -8,6 +8,7 @@ $primaryColor: rgb(44, 110, 89);
   .mat-mdc-header-cell {
     color: $primaryColor;
     background-color: $primaryBgColor;
+    z-index: 5 !important;
   }
 
   .tableHeaderCell {
