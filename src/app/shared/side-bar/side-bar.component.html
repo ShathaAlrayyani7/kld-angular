@@ -1,14 +1,25 @@
-<div class="sidebarWrapper">
+<div class="sidebarWrapper" [ngClass]="{ authSidebar: !(isLoggedIn | async) }">
   <img src="./assets/imges/logo.png" alt="Logo img" />
-  <div class="navGroup">
+  <div class="navGroup" [ngClass]="{ disappearNav: !(isLoggedIn | async) }">
     <button
       *ngFor="let navItem of navLinks"
       (click)="onNavigate(navItem.path)"
-      routerLink="{{navItem.path}}"
+      routerLink="{{ navItem.path }}"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}"
+      [routerLinkActiveOptions]="{ exact: true }"
     >
       {{ navItem.label }}
+      <div
+        [ngClass]="{
+          orderSvg: navItem.path === 'my-orders',
+          svgWrapper: navItem.path != 'my-orders'
+        }"
+        class="svgWrapper"
+      >
+        <svg>
+          <use [attr.xlink:href]="navItem.src"></use>
+        </svg>
+      </div>
     </button>
   </div>
 </div>

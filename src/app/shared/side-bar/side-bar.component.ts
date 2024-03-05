@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,30 +11,27 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss',
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
   navLinks = [
     {
       path:'home',
       label: 'الرئيسية',
-      src:'',
+      src:'./assets/icons/home.svg#home',
     },
     {
       path:'dashboard',
       label: 'لوحة المعلومات',
-      src:'',
+      src:'/assets/icons/dashboard.svg#dashboard',
     },
     {
       path:'my-orders',
       label: 'طلباتي',
-      src:'',
+      src:'./assets/icons/orders.svg#orders',
     },
   ]
+  isLoggedIn: Observable<boolean> = this.authService.isLoggedIn;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
-  ngOnInit(): void {
-    console.log('active route', this.route);
-    console.log('router: ', this.router);
-  }
+  constructor(private router: Router, private authService: AuthService) {}
 
   onNavigate(path: string) {
     this.router.navigate([path]);

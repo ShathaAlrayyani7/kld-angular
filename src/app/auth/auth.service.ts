@@ -4,12 +4,12 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService{
+export class AuthService {
   loginForm: { [key: string]: any } = {};
   signUpForm: { [key: string]: any } = {};
 
   isLogin = new BehaviorSubject<boolean>(true);
-  isLoggedIn = new BehaviorSubject<boolean>(true);
+  isLoggedIn = new BehaviorSubject<boolean>(false);
   isPassword = new BehaviorSubject<boolean>(true);
   isPassword2 = new BehaviorSubject<boolean>(true);
 
@@ -29,7 +29,7 @@ export class AuthService{
 
   onSignIn() {
     this.isLoggedIn.next(true);
-    this.router.navigate(['home'])
+    this.router.navigate(['my-orders'])
   }
 
   onSignOut() {

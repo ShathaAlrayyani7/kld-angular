@@ -1,13 +1,12 @@
 <div class="app">
-  <app-header />
-  <div *ngIf="isLoggedIn | async" class="appContent mainWrapper">
-    <app-side-bar />
-    <div class="main">
-      <router-outlet></router-outlet>
+  <div class="topPart">
+    <div class="rightSide">
+      <app-header />
+      <div>
+        <router-outlet></router-outlet>
+      </div>
     </div>
-      <app-footer />
+    <app-side-bar />
   </div>
-  <div *ngIf="!(isLoggedIn | async)" class="appContent">
-    <app-auth />
-  </div>
+  <app-footer [ngClass]="{ disappear: !(isLoggedIn | async) }" />
 </div>

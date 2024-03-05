@@ -42,7 +42,7 @@ $text-color: rgb(89 90 92);
     align-items: end;
     display: flex;
     flex-direction: column;
-    padding: 32px 24px;
+    padding: 32px 64px;
     gap: 24px;
 
     h1 {
@@ -53,7 +53,6 @@ $text-color: rgb(89 90 92);
 
     .tableWrapper {
       width: 100%;
-      height: 400px;
       overflow: auto;
     }
   }

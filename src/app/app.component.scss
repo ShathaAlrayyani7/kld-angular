@@ -2,9 +2,24 @@
   height: 100%;
   width: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 
-  .appContent {
-    margin-top: 77px;
+  .topPart {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .rightSide{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(250 252 251);
+  }
+
+  .disappear {
+    display: none;
   }
 
   .mainWrapper {
@@ -13,7 +28,6 @@
     flex-direction: column;
 
     .main {
-      margin-right: 296px;
       height: 100%;
     }
   }
