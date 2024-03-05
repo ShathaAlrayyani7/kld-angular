@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -57,7 +63,7 @@ export class SignUpComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private authService: AuthService) {}
   ngOnDestroy() {
-    this.authService.resetPasswordFlags()
+    this.authService.resetPasswordFlags();
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('changes: ', changes);
@@ -96,11 +102,19 @@ export class SignUpComponent implements OnInit, OnChanges, OnDestroy {
 
   handleOnSeePassword() {
     this.authService.onSeePassword();
-    console.log();
-    
   }
 
   handleOnSeePsw2() {
     this.authService.onSeePassword2();
+  }
+
+  getErrorMessage(controlName: string): string {
+    const control = this.signUpForm.get(controlName);
+    if (control?.hasError('required')) {
+      return 'هذا الحقل مطلوب';
+    } else if (control?.hasError('email')) {
+      return 'البريد الإلكتروني غير صالح';
+    }
+    return '';
   }
 }

@@ -15,7 +15,7 @@
           loginForm.get(label.name)?.touched
         "
         class="errorMsg"
-        >This Field is Required
+        >{{ getErrorMessage(label.name) }}
       </span>
     </div>
     <div class="textFieldWrapper">
@@ -53,12 +53,10 @@
           loginForm.get('password')?.touched
         "
         class="errorMsg"
-        >This Field is Required
+        >{{ getErrorMessage("password") }}
       </span>
     </div>
-    <button class="submitBtn" type="submit" [disabled]="!loginForm.valid">
-      تسجيل الدخول
-    </button>
+    <button class="submitBtn" type="submit" [disabled]="!loginForm.valid">تسجيل الدخول</button>
     <p>هل نسيت كلمة المرور؟</p>
     <p>
       لا تمتلك حساب؟

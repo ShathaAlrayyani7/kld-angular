@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      userName: new FormControl(null, [Validators.required]),
+      userName: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
     });
   }
@@ -52,4 +52,15 @@ export class LoginComponent implements OnInit {
   handleOnSeePassword() {
     this.authService.onSeePassword();
   }
+
+  getErrorMessage(controlName: string): string {
+    const control = this.loginForm.get(controlName);
+    if (control?.hasError('required')) {
+      return 'هذا الحقل مطلوب';
+    } else if (control?.hasError('email')) {
+      return 'البريد الإلكتروني غير صالح';
+    }
+    return '';
+  }
 }
+

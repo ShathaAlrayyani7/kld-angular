@@ -16,7 +16,7 @@
           signUpForm.get(label.name)?.touched
         "
         class="errorMsg"
-        >This Field is Required
+        >{{ getErrorMessage(label.name) }}
       </span>
     </div>
     <div *ngFor="let field of signUpPswFields" class="textFieldWrapper">
@@ -62,7 +62,7 @@
           signUpForm.get(field.name)?.touched
         "
         class="errorMsg"
-        >This Field is Required
+        >{{ getErrorMessage(field.name) }}
       </span>
     </div>
     <button class="signUpBtn" type="submit" [disabled]="!signUpForm.valid">
