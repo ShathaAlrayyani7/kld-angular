@@ -6,15 +6,10 @@ $green-text: rgb(128 182 65);
 .footer {
   align-items: end;
   background-color: $footerBg;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-height: 373px;
   padding: 32px 32px 0 64px;
-  position: fixed;
-  right: 0;
-  width: 96%;
   z-index: 15;
 
   .mainFooter {
